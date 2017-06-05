@@ -1,0 +1,19 @@
+<app-pagination [allPlayers]="allPlayers" [limit]="limit" (currentPage)="changeCurrentPage($event)"></app-pagination>
+<table>
+  <thead>
+    <tr>
+      <td>
+        ID <app-change-limit (changer)="changer($event)"></app-change-limit>
+      </td>
+      <td (click)="changeSort('fullname')">
+        Name
+      </td>
+      <td  (click)="changeSort('goals')">
+        Score
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr app-row *ngFor="let player of allPlayersSliced; let i = index" [player]="player" [index]="i"></tr>
+  </tbody>
+</table>
